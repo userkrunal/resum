@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class DataModel
 {
-  String? name,address,path,ph,s,skill,select;
+  String? name,address,path,ph,s,skill,select,objective;
   RangeValues? rangeValues;
   DataModel({
     this.name,
@@ -12,6 +12,7 @@ class DataModel
     this.s,
     this.skill,
     this.select,
-    this.rangeValues
+    this.rangeValues,
+    this.objective
   });
 }

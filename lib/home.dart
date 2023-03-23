@@ -13,6 +13,7 @@ class Home_Screen extends StatefulWidget {
 
 class _Home_ScreenState extends State<Home_Screen> {
   String? path;
+  TextEditingController txtObjective=TextEditingController();
   TextEditingController txtData=TextEditingController();
   TextEditingController txtName=TextEditingController();
   TextEditingController txtAddress=TextEditingController();
@@ -124,6 +125,23 @@ class _Home_ScreenState extends State<Home_Screen> {
                                   focusColor: Colors.purple.shade100
                               ),
                               controller: txtAddress,
+                              validator: (value) {
+                                if(value!.isEmpty)
+                                {
+                                  return "Please Enter The Value";
+                                }
+                                return null;
+                              },
+                            ),
+                            SizedBox(height: 10),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: "Objective",
+                                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.purple.shade100,width: 3)),
+                                  focusColor: Colors.purple.shade100
+                              ),
+                              controller: txtObjective,
                               validator: (value) {
                                 if(value!.isEmpty)
                                 {
@@ -328,7 +346,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                   ElevatedButton(onPressed: () {
                     if(txtKey.currentState!.validate())
                       {
-                        // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("${txtData.text} ${txtName.text}  ${txtAddress.text}" )));
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Add Your Information Successfuly")));
                       }
                    var skill="";
                    if(skillList[0]==true)
@@ -353,9 +371,8 @@ class _Home_ScreenState extends State<Home_Screen> {
                   //     },
                   //   ),
                   // ));
-                    d1 = DataModel(name: txtName.text,address: txtAddress.text,ph: txtData.text,path: path,s: s,skill: skill,select: select,rangeValues: rangeValues);
+                    d1 = DataModel(name: txtName.text,address: txtAddress.text,ph: txtData.text,path: path,s: s,skill: skill,select: select,rangeValues: rangeValues,objective: txtObjective.text);
                     Navigator.pushNamed(context, 'desh',arguments: d1);
-
                   }, child: Text("Submit")),
 
                 ],
