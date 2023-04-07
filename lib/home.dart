@@ -361,16 +361,6 @@ class _Home_ScreenState extends State<Home_Screen> {
                    {
                      skill="$skill Graphics";
                    }
-                   // var name =txtName.text;
-                   // var address=txtAddress.text;
-                  // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(" $name $skill $address " ),
-                  //   backgroundColor: Colors.purpleAccent.shade200,
-                  //   behavior: SnackBarBehavior.floating,
-                  //   action: SnackBarAction(label: "UNDO",
-                  //     onPressed: () {
-                  //     },
-                  //   ),
-                  // ));
                     d1 = DataModel(name: txtName.text,address: txtAddress.text,ph: txtData.text,path: path,s: s,skill: skill,select: select,rangeValues: rangeValues,objective: txtObjective.text);
                     Navigator.pushNamed(context, 'desh',arguments: d1);
                   }, child: Text("Submit")),
